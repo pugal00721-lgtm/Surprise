@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Birthday Surprise 🎂</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+
+
+    <body>
+        <div id="screen1" class="screen active">
+            <div class="hearts">
+                <span>💗</span><span>❤️‍🔥</span><span>💕</span><span>🤍</span><span>💖</span>
+            </div>
+            <div class="intro">
+                <h1>A Little Surprise 🖤</h1>
+            </div>
+            <button class="btn" onclick="goTo(2)">Tap to Enter 💖
+
+            </button>
+        </div>
+
+
+
+        <div id="screen2" class="screen">
+
+            <div class="balloons">
+                <div class ="balloon b1">
+                    <span class="string"></span>
+                </div>
+                <div class ="balloon b2">
+                    <span class="string"></span>
+                </div>
+                <div class ="balloon b3">
+                    <span class="string"></span>
+                </div>
+                <div class ="balloon b4">
+                    <span class="string"></span>
+                </div>
+                <div class ="balloon b5">
+                    <span class="string"></span>
+                </div>
+        </div>
+
+        <div class="card">
+            <h1>Happy Birthday 🎉</h1>
+            <h2></h2>
+            <p>
+                Wishing you a many many more happy returns of the day 💜☺️,
+                may your day filled with happiness,laughter 💓,
+                may your dreams come true and 
+                have a great year ahead 💙😁
+                Enjoy your Day 🤍
+            </p>
+            <p class="from">from 😁</p>
+        </div>
+        <button class="btn" onclick="goTo(3)">Next -> </button>
+        </div>
+
+
+        <div id="screen3" class="screen">
+            <div class="cake-wrap">
+
+                <div class="cake-emoji"></div>
+
+
+                <div class="cake-wrap">
+
+                        
+                    <div class="cake-emoji" id="cakeEmoji">🎂
+                        <div class="candle" onclick="blowCandle()">
+                            <div class="flame" id="flame"></div>
+                        </div>
+                    </div>
+                </div>
+
+            <p class="tap-text" id="tapText">Tap the candle to blow 🕯️😇</p>
+
+            <p class="wish-text" id="wishText">🎇 wish accepted!</p>
+            <h2>Make a wish ✨</h2>
+            <p>I hope this little made you smile 💝😇</p>
+            <audio id="BirthdayAudio" preload="auto>
+                <source src="nastelbom-happy-birthday-469282.mp3" type="audio/mpeg"></audio>
+
+        </div>
+        <script>
+            function goTo(n){
+                document.querySelectorAll('.screen').forEach(s=> s.classList.remove('active'));
+                document.getElementById('screen'+n).classList.add('active');
+            }
+            function blowCandle(){
+                const flame=document.getElementById("flame");
+                const candle = document.querySelector(".candle")
+                const wishText= document.getElementById("wishText");
+                const audio=document.getElementById("birthdayAudio");
+
+                if(flame){
+                    flame.style.opacity="0";
+                    flame.animations="none";
+
+                }
+
+                if (candle) {
+                    candle.style.transition="all 0.6s ease"
+                    candle.style.opacity="0";
+                    candle.style.transform="translateY(20px) scale(0.3)";
+                }
+                if(audio){
+                    audio.currentTime=0;
+                    audio.play().catch(()=>{});
+                }
+                setTimeout(() => {
+                if (wishText){
+                    wish.style.display="block";
+                    wishText.style.animation="popIn 0.6s ease";
+                }
+            },700);
+        }
+        </script>
+
+    </body>
+
+</html>
+
+
